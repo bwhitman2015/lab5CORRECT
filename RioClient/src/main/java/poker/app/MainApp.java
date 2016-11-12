@@ -251,10 +251,16 @@ public class MainApp extends Application {
 					System.out.println("Message Received " + message);
 				}
 				else if (message instanceof Table)
+					pokerController.Handle_TableState((Table)message);
+					pokerController.setlblNumberOfPlayers((Table)message);
+		
 				{
-					//TODO: If the message is a Table, run the 
-					//		method Handle_TableState in the 
-					//		pokerController.
+				else if (message instanceof GamePlay)
+				{
+					pokerController.Handle_GameState((GamePlay)message);
+					
+				}
+					
 				}
 				pokerController.MessageFromMainApp((String)message);
 			});
